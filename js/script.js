@@ -78,32 +78,48 @@ const imageCarousel = document.getElementById(`imageCarousel`)
 console.log(imageList);
 
 for (let i = 0; i < imageList.length; i++){
-
+            //creazione
     const newImg = document.createElement("div");
+    const myH1 = document.createElement("h1");
     const myP = document.createElement("p");
 
     if(i === 0 ) {
         
-        myP.innerHTML = `${imageList[i].title}`;
-        myP.innerHTML = `${imageList[i].text}`;
+            //inserimento
         newImg.innerHTML = `<img src="${imageList[i].image}">`;
+        myH1.innerHTML = `${imageList[i].title}`;
+        myP.innerHTML = `${imageList[i].text}`;
+
+            //classi
         newImg.classList.add("_image");
         newImg.classList.add("selected");
+
+        myH1.classList.add("text_d_none");
+        myH1.classList.add("selected");
+
         myP.classList.add("text_d_none");
         myP.classList.add("selected");
 
     }
       
     else{
-        myP.innerHTML = `${imageList[i].title}` + ' ' + `${imageList[i].text}`;
+
+            //inserimento
         newImg.innerHTML = `<img src="${imageList[i].image}">`;
+        myH1.innerHTML = `${imageList[i].title}`;
+        myP.innerHTML =`${imageList[i].text}`;
+
+            //classi
         newImg.classList.add("_image");
+        myH1.classList.add("text_d_none");
         myP.classList.add("text_d_none");
     }
 
     console.log(i);
 
+            //inserimento elementi html
     imageCarousel.append(newImg);
+    imageCarousel.append(myH1);
     imageCarousel.append(myP);
 }
 
@@ -118,33 +134,33 @@ for (let i = 0; i < imageList.length; i++){
 //  ----------------------------BUTTONS-------------------------------------------------------
 
 
-
-
-let p = 0;
+            //dichiarazione variabili img , p e h1 (rispettivamente j, p, t)
 let j = 0;
+let t = 0;
+let p = 0;
 
 const _Button = document.getElementById('_Button');
 
 _Button.addEventListener('click', function() {
 
+            //inserimento in nuove variabili prendendo gli elementi creati attraverso le classi aggiunte
     let next = document.getElementsByClassName(`_image`);
+    let nextT = document.getElementsByClassName(`text_d_none`);
     let nextP = document.getElementsByClassName(`text_d_none`);
-
+            
     console.log(next);
+    console.log(nextT);
     console.log(nextP);
 
+            //rimozione delle classi con d-block
     next[j].classList.remove('selected');
+    nextT[t].classList.remove('selected');
     nextP[p].classList.remove('selected');
-    p += 1;
+
+            //aumento valore variabili e controlli if
     j += 1;
-
-
-    if(p > 4){
-
-        p = 0;
-
-    }
-
+    t += 1;
+    p += 1;
 
     if(j > 4){
 
@@ -152,10 +168,26 @@ _Button.addEventListener('click', function() {
 
     }
 
-    nextP[p].classList.add('selected');
+    if(t > 4){
+
+        t = 0;
+
+    }
+
+    if(p > 4){
+
+        p = 0;
+
+    }
+
+            //aggiunta delle classi con d-block
     next[j].classList.add('selected');
+    nextT[t].classList.add('selected');
+    nextP[p].classList.add('selected');
 
     console.log(j);
+    console.log(t);
+    console.log(p);
     
 });
 
@@ -163,35 +195,48 @@ const _ButtonUp = document.getElementById('_ButtonUp');
 
 _ButtonUp.addEventListener('click', function() {
 
-    let nextP = document.getElementsByClassName(`text_d_none`)
     let next = document.getElementsByClassName(`_image`);
+    let nextT = document.getElementsByClassName(`text_d_none`);
+    let nextP = document.getElementsByClassName(`text_d_none`);
 
-    console.log(nextP);
     console.log(next);
+    console.log(nextT);
+    console.log(nextP);
     
-    nextP[p].classList.remove('selected');
     next[j].classList.remove('selected');
+    nextT[t].classList.remove('selected');
+    nextP[p].classList.remove('selected');
 
-    p -= 1;
     j -= 1;
-
-    if(p < 0){
-
-        p = 4;
-
-    }
-
+    t -= 1;
+    p -= 1;
+    
     if(j < 0){
 
         j = 4;
 
     }
 
-    nextP[p].classList.add('selected')
-    next[j].classList.add('selected');
+    if(t < 0){
 
-    console.log(p);
+        t = 4;
+
+    }
+
+    if(p < 0){
+
+        p = 4;
+
+    }
+    
+    
+    next[j].classList.add('selected');
+    nextT[t].classList.add('selected');
+    nextP[p].classList.add('selected');
+
     console.log(j);
+    console.log(t);
+    console.log(p);
     
 });
 
