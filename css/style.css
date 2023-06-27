@@ -44,6 +44,7 @@ GENERAL
     display: flex;
     justify-content: center;
     align-items:center;
+    position: relative;
 }
 
 .images{
@@ -65,10 +66,19 @@ GENERAL
 
 .title_d_none{
     display: none;
+    color: rgb(22, 167, 22);
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    font-size: 20px;
 }
 
 .text_d_none{
     display: none;
+    color: rgb(22, 167, 22);
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
 }
 
 .selected{
@@ -78,7 +88,6 @@ GENERAL
 .button_bg{
     border-radius: 50%;
     padding: 2px;
-    
 }
 
 .up{
@@ -92,4 +101,3 @@ GENERAL
     bottom: 8px;
     left: 49%;
 }
-
