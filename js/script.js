@@ -80,23 +80,31 @@ console.log(imageList);
 for (let i = 0; i < imageList.length; i++){
 
     const newImg = document.createElement("div");
-    
+    const myP = document.createElement("p");
+
     if(i === 0 ) {
+        
+        myP.innerHTML = `${imageList[i].title}`;
+        myP.innerHTML = `${imageList[i].text}`;
         newImg.innerHTML = `<img src="${imageList[i].image}">`;
         newImg.classList.add("_image");
         newImg.classList.add("selected");
+        myP.classList.add("text_d_none");
+        myP.classList.add("selected");
 
     }
       
     else{
+        myP.innerHTML = `${imageList[i].title}` + ' ' + `${imageList[i].text}`;
         newImg.innerHTML = `<img src="${imageList[i].image}">`;
         newImg.classList.add("_image");
+        myP.classList.add("text_d_none");
     }
 
     console.log(i);
 
     imageCarousel.append(newImg);
-
+    imageCarousel.append(myP);
 }
 
 
@@ -112,7 +120,7 @@ for (let i = 0; i < imageList.length; i++){
 
 
 
-
+let p = 0;
 let j = 0;
 
 const _Button = document.getElementById('_Button');
@@ -120,12 +128,23 @@ const _Button = document.getElementById('_Button');
 _Button.addEventListener('click', function() {
 
     let next = document.getElementsByClassName(`_image`);
+    let nextP = document.getElementsByClassName(`text_d_none`);
 
     console.log(next);
-        
-    next[j].classList.remove('selected');
+    console.log(nextP);
 
+    next[j].classList.remove('selected');
+    nextP[p].classList.remove('selected');
+    p += 1;
     j += 1;
+
+
+    if(p > 4){
+
+        p = 0;
+
+    }
+
 
     if(j > 4){
 
@@ -133,6 +152,7 @@ _Button.addEventListener('click', function() {
 
     }
 
+    nextP[p].classList.add('selected');
     next[j].classList.add('selected');
 
     console.log(j);
@@ -143,13 +163,23 @@ const _ButtonUp = document.getElementById('_ButtonUp');
 
 _ButtonUp.addEventListener('click', function() {
 
+    let nextP = document.getElementsByClassName(`text_d_none`)
     let next = document.getElementsByClassName(`_image`);
 
+    console.log(nextP);
     console.log(next);
-        
+    
+    nextP[p].classList.remove('selected');
     next[j].classList.remove('selected');
 
+    p -= 1;
     j -= 1;
+
+    if(p < 0){
+
+        p = 4;
+
+    }
 
     if(j < 0){
 
@@ -157,8 +187,10 @@ _ButtonUp.addEventListener('click', function() {
 
     }
 
+    nextP[p].classList.add('selected')
     next[j].classList.add('selected');
 
+    console.log(p);
     console.log(j);
     
 });

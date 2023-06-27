@@ -63,6 +63,10 @@ GENERAL
     width: 100%;
 }
 
+.text_d_none{
+    display: none;
+}
+
 .selected{
     display: block;
 }
@@ -84,3 +88,4 @@ GENERAL
     bottom: 8px;
     left: 49%;
 }
+
