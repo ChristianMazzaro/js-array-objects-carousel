@@ -94,7 +94,7 @@ for (let i = 0; i < imageList.length; i++){
         newImg.classList.add("_image");
         newImg.classList.add("selected");
 
-        myH1.classList.add("text_d_none");
+        myH1.classList.add("title_d_none");
         myH1.classList.add("selected");
 
         myP.classList.add("text_d_none");
@@ -111,7 +111,7 @@ for (let i = 0; i < imageList.length; i++){
 
             //classi
         newImg.classList.add("_image");
-        myH1.classList.add("text_d_none");
+        myH1.classList.add("title_d_none");
         myP.classList.add("text_d_none");
     }
 
@@ -145,7 +145,7 @@ _Button.addEventListener('click', function() {
 
             //inserimento in nuove variabili prendendo gli elementi creati attraverso le classi aggiunte
     let next = document.getElementsByClassName(`_image`);
-    let nextT = document.getElementsByClassName(`text_d_none`);
+    let nextT = document.getElementsByClassName(`title_d_none`);
     let nextP = document.getElementsByClassName(`text_d_none`);
             
     console.log(next);
@@ -166,19 +166,19 @@ _Button.addEventListener('click', function() {
 
         j = 0;
 
-    }
+    };
 
     if(t > 4){
 
         t = 0;
 
-    }
+    };
 
     if(p > 4){
 
         p = 0;
 
-    }
+    };
 
             //aggiunta delle classi con d-block
     next[j].classList.add('selected');
@@ -196,7 +196,7 @@ const _ButtonUp = document.getElementById('_ButtonUp');
 _ButtonUp.addEventListener('click', function() {
 
     let next = document.getElementsByClassName(`_image`);
-    let nextT = document.getElementsByClassName(`text_d_none`);
+    let nextT = document.getElementsByClassName(`title_d_none`);
     let nextP = document.getElementsByClassName(`text_d_none`);
 
     console.log(next);
@@ -215,19 +215,19 @@ _ButtonUp.addEventListener('click', function() {
 
         j = 4;
 
-    }
+    };
 
     if(t < 0){
 
         t = 4;
 
-    }
+    };
 
     if(p < 0){
 
         p = 4;
 
-    }
+    };
     
     
     next[j].classList.add('selected');

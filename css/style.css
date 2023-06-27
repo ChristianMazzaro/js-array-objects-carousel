@@ -63,12 +63,16 @@ GENERAL
     width: 100%;
 }
 
+.title_d_none{
+    display: none;
+}
+
 .text_d_none{
     display: none;
 }
 
 .selected{
-    display: block;
+    display: block ;
 }
 
 .button_bg{
